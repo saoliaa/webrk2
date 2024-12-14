@@ -34,6 +34,11 @@ func (u *Usecase) UpdateTask(id int, new_status string) (string, bool) {
 			return "Статус неверный", false
 		}
 	}
+	if status == "done" {
+		if new_status != "new" && new_status != "in progress" {
+			return "Статус неверный", false
+		}
+	}
 	done, _ := u.p.UpdateQuery(id, new_status)
 	if !done {
 		return "Произошла ошибка", false
