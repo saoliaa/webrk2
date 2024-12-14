@@ -4,7 +4,12 @@ type Config struct {
 	IP   string `yaml:"ip"`
 	Port int    `yaml:"port"`
 
-	DB db `yaml:"db"`
+	API api `yaml:"api"`
+	DB  db  `yaml:"db"`
+}
+
+type api struct {
+	MaxMessageSize int `yaml:"max_message_size"`
 }
 
 type db struct {
