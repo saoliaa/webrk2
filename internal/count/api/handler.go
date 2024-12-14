@@ -46,7 +46,7 @@ func (srv *Server) UpdateTask(e echo.Context) error {
 	}
 	msg, done := srv.uc.UpdateTask(int_id, status)
 	if !done {
-		return e.String(http.StatusInternalServerError, msg)
+		return e.String(http.StatusBadRequest, msg)
 	}
 	return e.JSON(http.StatusOK, msg)
 }
